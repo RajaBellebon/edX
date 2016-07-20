@@ -23,12 +23,12 @@ namespace edXCourse
         {
         }
 
-        public static Dictionary<Tuple<string, int>, Dictionary<string, Tuple<string[,], string[]>>> getDegree(string degreeName, int degreeCredit, string courseName, string[,] studentArr, string[] teacherArr)
+        public static Dictionary<Tuple<string, int>, Dictionary<string, Tuple<List<string>, string[]>>> getDegree(string degreeName, int degreeCredit, string courseName, List<string> studentArr, string[] teacherArr)
         {
             Degrees DegreeInfo = new Degrees();
             
-            Dictionary<Tuple<string, int>, Dictionary<string, Tuple<string[,], string[]>>> degreeInformation = new Dictionary<Tuple<string, int>, Dictionary<string, Tuple<string[,], string[]>>>();
-            Dictionary<string, Tuple<string[,], string[]>> courseDict = new Dictionary<string, Tuple<string[,], string[]>>();
+            Dictionary<Tuple<string, int>, Dictionary<string, Tuple<List<string>, string[]>>> degreeInformation = new Dictionary<Tuple<string, int>, Dictionary<string, Tuple<List<string>, string[]>>>();
+            Dictionary<string, Tuple<List<string>, string[]>> courseDict = new Dictionary<string, Tuple<List<string>, string[]>>();
             courseDict = Course.getCourse(courseName, studentArr, teacherArr);
             degreeInformation.Add(Tuple.Create(DegreeInfo.DegreesName, DegreeInfo.DegreesCredit),courseDict);
             

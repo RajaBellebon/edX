@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace edXCourse
 {
@@ -15,6 +16,8 @@ namespace edXCourse
         public string BirthdayDate { get; set; }
         public string Postcode { get;set;}
         public int NumberOfStudents { get; set; }
+        public static List<string> arrStudent { get; private set; }
+
 
         // Constructors
         public Student(string firstName, string lastName, string address1, string address2, string city, string state, string country, string birthdayDate, string postcode)
@@ -49,7 +52,7 @@ namespace edXCourse
 
             return DateTime.TryParse(txtDate, out tempDate) ? true : false;
         }
-        public static string[,] GetStudentInformation(int numberOfStudent)
+        public static string GetStudentInformation(int numberOfStudent)
         {
             // Variable declaration
             DateTime birthDay;
@@ -90,13 +93,10 @@ namespace edXCourse
             student.State = Console.ReadLine();
             Console.WriteLine("Please enter your country:");
             student.Country = Console.ReadLine();
-            string[] arrStudentInformation = { student.FirstName, student.LastName, student.Address1, student.Address2, student.City, student.Postcode, student.State, student.Country, student.BirthdayDate };          
-            string[,] arrStudent;
-            string studentInfoLine = "The student " + arrStudentInformation[0] + " " + arrStudentInformation[1] + "\r\n lives here: " + arrStudentInformation[2] + " " + arrStudentInformation[3] + "\r\n in " + arrStudentInformation[4] + " " + arrStudentInformation[5] + " " + arrStudentInformation[6] + " " + arrStudentInformation[7] + "\r\n and born in " + arrStudentInformation[8];
-            arrStudent = new string[,] { { numberOfStudent.ToString() }, { studentInfoLine } };
-            
+            string[] arrStudentInformation = { student.FirstName, student.LastName, student.Address1, student.Address2, student.City, student.Postcode, student.State, student.Country, student.BirthdayDate };                      
+            string studentInfoLine = "The student " + arrStudentInformation[0] + " " + arrStudentInformation[1] + "\r\n lives here: " + arrStudentInformation[2] + " " + arrStudentInformation[3] + "\r\n in " + arrStudentInformation[4] + " " + arrStudentInformation[5] + " " + arrStudentInformation[6] + " " + arrStudentInformation[7] + "\r\n and born in " + arrStudentInformation[8];          
             numberOfStudent += 1;
-            return arrStudent;
+            return studentInfoLine;
         }
 
     }

@@ -19,7 +19,7 @@ namespace edXCourse
         {
         }
 
-        public static String[] getTeacher(string teacherFirstName, string teacherFamilyName)
+        public static string[] getTeacher(string teacherFirstName, string teacherFamilyName)
         {
             Teacher teacher = new Teacher();
             string[] arrTeacher = {teacher.TeacherFirstName, teacher.TeacherFamilyName};
