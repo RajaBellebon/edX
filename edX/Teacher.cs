@@ -2,28 +2,43 @@
 
 namespace edXCourse
 {
-    public class Teacher
+    public class Teacher: Person
     {
         // Properties
-        public string TeacherFirstName { get; set; }
-        public string TeacherFamilyName { get; set; }
-
+        public int Score { get; set; }
         // Constructors
-        public Teacher(string teacherFirstName, string teacherFamilyName)
+        public Teacher(string firstName, string lastName, int score)
         {
-            this.TeacherFirstName = teacherFirstName;
-            this.TeacherFamilyName = teacherFamilyName;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Score = score;
         }
 
         public Teacher()
         {
         }
-
-        public static string[] getTeacher(string teacherFirstName, string teacherFamilyName)
+        public static string [] getTeacher()
+        {
+            Teacher teach = new Teacher();
+            string[] arrTeacher = { teach.FirstName, teach.LastName };
+            return arrTeacher;
+        }
+        
+        public static string GradeTest()
         {
             Teacher teacher = new Teacher();
-            string[] arrTeacher = {teacher.TeacherFirstName, teacher.TeacherFamilyName};
-            return arrTeacher;
+            var grade = "";
+           if (teacher.Score >=80)
+           { return grade = "A";}
+            else if(teacher.Score < 80 && teacher.Score >=60)
+            {return grade = "B";}
+            else if(teacher.Score < 60 && teacher.Score >=50)
+            {return grade = "C";}
+            else if(teacher.Score < 50 && teacher.Score >=35)
+            {return grade = "D";}
+            else
+           { return grade = "E"; }
+            
         }
     }
 }

@@ -9,12 +9,12 @@ namespace edXCourse
     public class Course
     {
         // Properties
-        public List<string> StudentArr { get; set; }
+        public string[] StudentArr { get; set; }
         public string[] TeachArr { get; set; }
         public string courseName { get; set; }
 
         // Constructors
-        public Course(string courseName, List<string> studentArr, string[] teacherArr)
+        public Course(string courseName, string[] studentArr, string[] teacherArr)
         {
             this.StudentArr = studentArr;
             this.TeachArr = teacherArr;
@@ -24,10 +24,10 @@ namespace edXCourse
         {
         }
 
-        public static Dictionary<string, Tuple<List<string>, string[]>> getCourse(string courseName, List<string> studentArr, string[] teacherArr)
+        public static Dictionary<string, Tuple<string[], string[]>> getCourse(string courseName, string[] studentArr, string[] teacherArr)
         {
             Course course = new Course();
-            Dictionary<string, Tuple<List<string>, string[]>> courseDict = new Dictionary<string, Tuple<List<string>, string[]>>();
+            Dictionary<string, Tuple<string[], string[]>> courseDict = new Dictionary<string, Tuple<string[], string[]>>();
             course.StudentArr = studentArr;
             course.TeachArr = teacherArr;
             course.courseName = courseName;
