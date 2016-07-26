@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +10,12 @@ namespace edXCourse
     public class Course
     {
         // Properties
-        public string[] StudentArr { get; set; }
-        public string[] TeachArr { get; set; }
+        public List<string> StudentArr { get; set; }
+        public List<string> TeachArr { get; set; }
         public string courseName { get; set; }
 
         // Constructors
-        public Course(string courseName, string[] studentArr, string[] teacherArr)
+        public Course(string courseName, List<string> studentArr, List<string> teacherArr)
         {
             this.StudentArr = studentArr;
             this.TeachArr = teacherArr;
@@ -24,10 +25,10 @@ namespace edXCourse
         {
         }
 
-        public static Dictionary<string, Tuple<string[], string[]>> getCourse(string courseName, string[] studentArr, string[] teacherArr)
+        public static Dictionary<string, Tuple<List<string>, List<string>>> getCourse(string courseName, List<string> studentArr, List<string> teacherArr)
         {
             Course course = new Course();
-            Dictionary<string, Tuple<string[], string[]>> courseDict = new Dictionary<string, Tuple<string[], string[]>>();
+            Dictionary<string, Tuple<List<string>, List<string>>> courseDict = new Dictionary<string, Tuple<List<string>, List<string>>>();
             course.StudentArr = studentArr;
             course.TeachArr = teacherArr;
             course.courseName = courseName;

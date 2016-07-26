@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace edXCourse
 {
@@ -6,6 +8,7 @@ namespace edXCourse
     {
         // Properties
         public int Score { get; set; }
+       
         // Constructors
         public Teacher(string firstName, string lastName, int score)
         {
@@ -17,16 +20,22 @@ namespace edXCourse
         public Teacher()
         {
         }
-        public static string [] getTeacher()
+        public static List<string> getTeacher()
         {
             Teacher teach = new Teacher();
-            string[] arrTeacher = { teach.FirstName, teach.LastName };
-            return arrTeacher;
+            Console.WriteLine("Enter the teacher information");
+            List<string> listTeacher = new List<string>();
+            var teacherInfo = CreateAPerson();
+
+            listTeacher.Add(teacherInfo);
+            return listTeacher;
         }
         
-        public static string GradeTest()
+        public static string GradeTest(int averageSc)
         {
             Teacher teacher = new Teacher();
+        
+            teacher.Score = averageSc;
             var grade = "";
            if (teacher.Score >=80)
            { return grade = "A";}
